@@ -10,7 +10,14 @@ def main():
     # Sidebar for model selection
     st.sidebar.title("Settings")
     model_name = st.sidebar.selectbox(
-        "Select YOLOv5 Model", ["yolov5s", "yolov5m", "yolov5l", "yolov5x"]
+        "Select YOLOv5 Model",
+        [
+            "yolov5s",
+            "yolov5m",
+            "yolov5l",
+            "yolov5n",
+            "yolov5x",
+        ],
     )
 
     # Image upload
