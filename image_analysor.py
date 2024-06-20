@@ -8,14 +8,21 @@ import torch
 
 class ImageAnalysor:
     def __init__(self, model_name: str = "yolov5s") -> None:
-        self.available_models = [f"yolov5{i}" for i in ["l", "m", "n", "s", "x"]]
+        self.available_models = {
+            "yolov5s": "models/yolov5s.pt",
+            "yolov5m": "models/yolov5m.pt",
+            "yolov5l": "models/yolov5l.pt",
+            "yolov5n": "models/yolov5n.pt",
+            "yolov5x": "models/yolov5x.pt",
+        }
         self.errors = ""
         self.results = ""
         self.model = self._set_model(model_name)
 
     def _set_model(self, model_name):
-        if model_name in self.available_models:
-            model = torch.hub.load("ultralytics/yolov5", "custom", path=model_name)
+        if model_name in self.available_models.keys():
+            model_path = self.available_models[model_name]
+            model = torch.hub.load("ultralytics/yolov5", "custom", path=model_path)
         else:
             self.errors = "Model not found. :("
             model = ""
