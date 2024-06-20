@@ -74,6 +74,11 @@ This class handles image analysis using YOLOv5 models.
 - `get_result(self) -> str`: Returns the detection results as a formatted string.
 - `_prepare_output(self) -> Dict`: Prepares the output by counting the occurrences of each detected object class.
 
+### Sample 
+<img src="samples/sample_1.jpg">
+<pr>
+<img src="samples/sample_2.jpg">
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request with your changes.
