@@ -15,7 +15,7 @@ class ImageAnalysor:
 
     def _set_model(self, model_name):
         if model_name in self.available_models:
-            model = torch.hub.load("ultralytics/yolov5", model_name)
+            model = torch.hub.load("ultralytics/yolov5", "custom", path=model_name)
         else:
             self.errors = "Model not found. :("
             model = ""
