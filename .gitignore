@@ -163,4 +163,6 @@ cython_debug/
 #.idea/
 
 test.ipynb
-yolov5s.pt
+yolov5l.pt
+yolov5m.pt
+yolov5x.pt
