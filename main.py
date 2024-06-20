@@ -7,7 +7,6 @@ from image_analysor import ImageAnalysor
 def main():
     st.title("Object Detection with YOLOv5")
 
-    # Sidebar for model selection
     st.sidebar.title("Settings")
     model_name = st.sidebar.selectbox(
         "Select YOLOv5 Model",
@@ -20,14 +19,12 @@ def main():
         ],
     )
 
-    # Image upload
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
     if uploaded_file:
         img = Image.open(uploaded_file)
         st.image(img, caption="Uploaded Image", use_column_width=True)
 
-        # Run object detection
         analysor = ImageAnalysor(model_name)
         analysor.analyse_image(uploaded_file)
 
@@ -37,7 +34,6 @@ def main():
             st.success("Image analysis completed.")
             st.text(analysor.get_result())
 
-            # Display the result image with detections
             st.image(
                 analysor.results.render()[0],
                 caption="Detected Objects",
